@@ -14,5 +14,6 @@ typedef struct header
 
 Quizz *creeareIntrebare(char *intrb, char *rasp1, char *rasp2);
 void quizz(Quizz *nod);
+Quizz *incarcaFisier(char *fisier);
 
 #endif

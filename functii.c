@@ -57,3 +57,35 @@ void quizz(Quizz *nod)
         quizz(nod);
     }
 }
+
+Quizz *incarcaFisier(char *fisier)
+{
+    FILE *f=fopen(fisier,"r");
+    if(!f)
+    {
+        perror("Eroare");
+        return NULL;
+    }
+    Quizz *noduri[100]={0};
+    int stg[100];
+    int drt[100];
+    int id, st, dr;
+    char text[MAX_INTR], r1[MAX_RASP], r2[MAX_RASP];
+    while(fscanf(f, "%d;%[^;];%[^;];%[^;];%d;%d\n", &id, text, r1, r2, &st, &dr)==6)
+    {
+        printf("Am citit intrebarea cu ID: %d\n", id);
+        noduri[id]=creeareIntrebare(text,r1,r2);
+        stg[id]=st;
+        drt[id]=dr;
+    }
+    fclose(f);
+    for(int i=1;i<100;i++)
+    {
+        if(noduri[i])
+        {
+            noduri[i]->var1=noduri[stg[i]];
+            noduri[i]->var2=noduri[drt[i]];
+        }
+    }
+    return noduri[1];
+}

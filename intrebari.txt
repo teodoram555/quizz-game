@@ -1,0 +1,7 @@
+1; Vrei sa inveti programare?;a.Da;b.Nu;2;3
+2; Ce limbaj preferi?;a.C/C++;b.Python;4;5
+3; Pacat... Vrei sa incerci totusi?;a.Da;b.Nu,lasa-ma;2;6
+4; Bravo! Pointerii sunt grei?;a.Da;b.Nu;7;7
+5; Python e usor. Dar stii C?;a.Da;b.Nu;4;6
+6; Am inteles. La revedere!;a.Iesire;b.Iesire;0;0
+7; Felicitari, esti programator!;a.Iesire;b.Iesire;0;0
