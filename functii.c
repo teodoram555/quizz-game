@@ -69,14 +69,27 @@ Quizz *incarcaFisier(char *fisier)
     Quizz *noduri[100]={0};
     int stg[100];
     int drt[100];
-    int id, st, dr;
-    char text[MAX_INTR], r1[MAX_RASP], r2[MAX_RASP];
-    while(fscanf(f, "%d;%[^;];%[^;];%[^;];%d;%d\n", &id, text, r1, r2, &st, &dr)==6)
+    int id, st, dr,rezultat;
+    char text[MAX_INTR], r1[MAX_RASP], r2[MAX_RASP],c;
+    while(1)
     {
-        printf("Am citit intrebarea cu ID: %d\n", id);
-        noduri[id]=creeareIntrebare(text,r1,r2);
-        stg[id]=st;
-        drt[id]=dr;
+        rezultat=fscanf(f, "%d;%[^;];%[^;];%[^;];%d;%d\n", &id, text, r1, r2, &st, &dr);
+        
+        if(rezultat==-1)
+        {
+            break;
+        }
+        else if(rezultat==6)
+        {
+            printf("Am citit intrebarea cu ID: %d\n", id);
+            noduri[id]=creeareIntrebare(text,r1,r2);
+            stg[id]=st;
+            drt[id]=dr;
+        }
+        else{
+            while((c=fgetc(f))!= '\n'&&c!=-1);
+        }
+       
     }
     fclose(f);
     for(int i=1;i<100;i++)

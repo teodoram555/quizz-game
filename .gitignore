@@ -29,6 +29,7 @@
 *.dylib
 
 # Executables
+quizz
 *.exe
 *.out
 *.app
